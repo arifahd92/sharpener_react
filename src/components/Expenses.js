@@ -1,20 +1,13 @@
 import React from "react";
 import "./expenses.css";
-export default function Expenses() {
+
+export default function Expenses({ name, amount, location }) {
   return (
     <div className="maincont">
-      <div className="cont">
-        <h1>expenses</h1>
-      </div>
       <div className="cont-item">
-        <div className="name">moovie</div>
-        <div className="price">100$</div>
-        <div className="location">poone iconic</div>
-      </div>
-      <div className="cont-item">
-        <div className="name">icecream</div>
-        <div className="price">10$</div>
-        <div className="location">poone iconic</div>
+        <div className="name">{name}</div>
+        <div className="price">{amount}</div>
+        <div className="location">{location}</div>
       </div>
     </div>
   );
