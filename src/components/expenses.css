@@ -1,0 +1,19 @@
+.cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    margin: auto;
+    background-color: antiquewhite;
+    height: 70px;
+}
+.cont-item{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 700px;
+    margin: auto;
+    margin-top: 20px;
+    height: 50px;
+    background-color: aquamarine;
+}
