@@ -3,7 +3,10 @@ import React from "react";
 export default function App() {
   return (
     <div>
-      <h1>i m app.js</h1>
+      <h2>Expense Items</h2>
+      <div> Food Rs 10 </div>
+      <div>Petrol Rs 100 </div>
+      <div>Movies Rs 200</div>
     </div>
   );
 }
