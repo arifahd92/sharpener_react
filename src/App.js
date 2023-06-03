@@ -1,10 +1,10 @@
 import React from "react";
-import Wrapper from "./components/Wrapper";
+import ExpenseApp from "./components/ExpenseApp";
 
 export default function App() {
   return (
     <div>
-      <Wrapper />
+      <ExpenseApp />
     </div>
   );
 }
