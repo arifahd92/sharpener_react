@@ -1,10 +1,10 @@
 import React from "react";
-import ExpenseApp from "./components/ExpenseApp";
+import CreateElement from "./components/CreateElement";
 
 export default function App() {
   return (
     <div>
-      <ExpenseApp />
+      <CreateElement date={new Date()} />
     </div>
   );
 }
