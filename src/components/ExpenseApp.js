@@ -1,5 +1,5 @@
 import React from 'react'
-import ExpenseItem from './ExpenseItem';
+import ExpenseItem from '../ExpenseItem';
 
 export default function ExpenseApp() {
     let date = new Date()

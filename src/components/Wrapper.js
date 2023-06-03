@@ -1,7 +1,7 @@
 import React from "react";
-import Expenses from "./Expenses";
+import Expenses from "./ui/Expenses";
 
-export default function Wrapper() {
+const Wrapper = () => {
     const expensedata = [
         {
             name: "moovie",
@@ -31,3 +31,4 @@ export default function Wrapper() {
         </div>
     );
 }
+export default Wrapper

@@ -1,7 +1,7 @@
 import React from "react";
 import "./expenses.css";
 
-export default function Expenses({ name, amount, location }) {
+const Expenses = ({ name, amount, location }) => {
   return (
     <div className="maincont">
       <div className="cont-item">
@@ -12,3 +12,4 @@ export default function Expenses({ name, amount, location }) {
     </div>
   );
 }
+export default Expenses

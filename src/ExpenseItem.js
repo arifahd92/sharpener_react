@@ -1,5 +1,5 @@
 import React from "react";
-import ExpenseDate from "./ExpenseDate";
+import ExpenseDate from "./components/ExpenseDate";
 
 export default function ExpenseItem({ title, amount, location, date }) {
   return (
