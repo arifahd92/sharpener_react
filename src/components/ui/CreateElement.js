@@ -1,5 +1,5 @@
 import React from "react";
-import ExpenseDate from "./ExpenseDate";
+import ExpenseDate from "../ExpenseDate";
 
 export default function CreateElement(props) {
   return React.createElement(
