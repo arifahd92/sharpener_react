@@ -7,7 +7,7 @@ const Wrapper = () => {
     const expensedata = [
         {
             name: "moovie",
-            amount: "30$",
+            amount: 30,
             location: "poone",
         },
     ];
@@ -26,7 +26,7 @@ const Wrapper = () => {
     }, []);
 
     const handleDelete = (index) => {
-        let newArr = updatedExpenses.filter((item, ind) => ind != index)
+        let newArr = updatedExpenses.filter((item, ind) => ind !== index)
         setUpdatedExpenses(newArr);
     };
 
