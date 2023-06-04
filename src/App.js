@@ -7,7 +7,7 @@ import ExpenseForm from "./components/ExpenseForm";
 export default function App() {
   return (
     <div>
-      <ExpenseForm />
+      <Wrapper />
     </div>
   );
 }

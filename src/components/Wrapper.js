@@ -2,23 +2,36 @@ import React, { useEffect, useState } from "react";
 import Expenses from "./Expenses";
 
 const Wrapper = () => {
-    const [updatedExpenses, setUpdatedExpenses] = useState([]);
-
-    const expensedata = [
+    let expensedata = [
         {
             name: "moovie",
             amount: 30,
             location: "poone",
         },
+        {
+            name: "riding",
+            amount: 50,
+            location: "poone",
+        },
     ];
+    const [updatedExpenses, setUpdatedExpenses] = useState(expensedata);
 
+
+    const addexpense = (data) => {
+        console.log("from addexpense")
+        console.log(data)
+        expensedata = [...updatedExpenses, data]
+        console.log("i m finel data")
+        console.log(expensedata)
+        setUpdatedExpenses(expensedata)
+    }
     useEffect(() => {
         const expenses = [];
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < expensedata.length; i++) {
             expenses.push({
-                name: expensedata[0].name,
-                amount: expensedata[0].amount,
-                location: expensedata[0].location,
+                name: expensedata[i].name,
+                amount: expensedata[i].amount,
+                location: expensedata[i].location,
                 cindex: i,
             });
         }
@@ -36,7 +49,7 @@ const Wrapper = () => {
                 <h1>Expenses</h1>
             </div>
             {updatedExpenses.map((expense) => (
-                <Expenses
+                <Expenses addexpense={addexpense}
                     key={expense.key}
                     name={expense.name}
                     amount={expense.amount}

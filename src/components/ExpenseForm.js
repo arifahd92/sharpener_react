@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-export default function ExpenseWithInput() {
+export default function ExpenseForm(props) {
   const [inputState, setInputState] = useState({
-    title: "",
+    name: "",
     amount: 0,
     location: "",
   });
@@ -10,15 +10,16 @@ export default function ExpenseWithInput() {
     console.log(e.preventDefault());
     console.log("form submitted");
     console.log(inputState);
+    props.getdata(inputState);
   }
   return (
     <>
       <form action="#" onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="title"
+          placeholder="name"
           onChange={(e) =>
-            setInputState({ ...inputState, title: e.target.value })
+            setInputState({ ...inputState, name: e.target.value })
           }
         />
         <br />
