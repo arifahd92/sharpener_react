@@ -1,7 +1,9 @@
-import React from "react";
-import Expenses from "./ui/Expenses";
+import React, { useEffect, useState } from "react";
+import Expenses from "./Expenses";
 
 const Wrapper = () => {
+    const [updatedExpenses, setUpdatedExpenses] = useState([]);
+
     const expensedata = [
         {
             name: "moovie",
@@ -9,26 +11,42 @@ const Wrapper = () => {
             location: "poone",
         },
     ];
-    const expensesArray = [];
 
-    for (let i = 0; i < 100; i++) {
-        expensesArray.push(
-            <Expenses
-                key={i}
-                name={expensedata[0].name}
-                amount={expensedata[0].amount}
-                location={expensedata[0].location}
-            />
-        );
-    }
+    useEffect(() => {
+        const expenses = [];
+        for (let i = 0; i < 100; i++) {
+            expenses.push({
+                name: expensedata[0].name,
+                amount: expensedata[0].amount,
+                location: expensedata[0].location,
+                cindex: i,
+            });
+        }
+        setUpdatedExpenses(expenses);
+    }, []);
+
+    const handleDelete = (index) => {
+        let newArr = updatedExpenses.filter((item, ind) => ind != index)
+        setUpdatedExpenses(newArr);
+    };
 
     return (
         <div>
             <div className="cont">
-                <h1>expenses</h1>
+                <h1>Expenses</h1>
             </div>
-            {expensesArray}
+            {updatedExpenses.map((expense) => (
+                <Expenses
+                    key={expense.key}
+                    name={expense.name}
+                    amount={expense.amount}
+                    location={expense.location}
+                    cindex={expense.cindex}
+                    delFunc={handleDelete}
+                />
+            ))}
         </div>
     );
-}
-export default Wrapper
+};
+
+export default Wrapper;
