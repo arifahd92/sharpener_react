@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function Expense() {
-  const [alldata, setAlldata] = useState([{}]);
+  const [hideform, sethideForm] = useState(true);
   const [data, setData] = useState([{}]);
   const [inputState, setInputState] = useState({
     date: "",
@@ -19,6 +19,7 @@ export default function Expense() {
     setInputState({ ...inputState, year: currentyear });
 
     setData([inputState, ...data]);
+    sethideForm(true);
   }
   function handleselect(e) {
     console.log("some thing selected");
@@ -59,42 +60,50 @@ export default function Expense() {
   }
   return (
     <>
-      <form action="#" onSubmit={handleSubmit}>
-        <input
-          type="date"
-          name=""
-          id=""
-          onChange={(e) =>
-            setInputState({ ...inputState, date: e.target.value })
-          }
-        />
-        <br />
-        <input
-          type="text"
-          placeholder="name"
-          onChange={(e) =>
-            setInputState({ ...inputState, name: e.target.value })
-          }
-        />
-        <br />
-        <input
-          type="text"
-          placeholder="amount"
-          onChange={(e) =>
-            setInputState({ ...inputState, amount: e.target.value })
-          }
-        />
-        <br />
-        <input
-          type="text"
-          placeholder="location"
-          onChange={(e) =>
-            setInputState({ ...inputState, location: e.target.value })
-          }
-        />
-        <br />
-        <input type="submit" />
-      </form>
+      {hideform == true ? (
+        <div>
+          <button onClick={() => sethideForm(false)}>add expenses</button>
+          <br />
+        </div>
+      ) : (
+        <form action="#" onSubmit={handleSubmit}>
+          <input
+            type="date"
+            name=""
+            id=""
+            onChange={(e) =>
+              setInputState({ ...inputState, date: e.target.value })
+            }
+          />
+          <br />
+          <input
+            type="text"
+            placeholder="name"
+            onChange={(e) =>
+              setInputState({ ...inputState, name: e.target.value })
+            }
+          />
+          <br />
+          <input
+            type="text"
+            placeholder="amount"
+            onChange={(e) =>
+              setInputState({ ...inputState, amount: e.target.value })
+            }
+          />
+          <br />
+          <input
+            type="text"
+            placeholder="location"
+            onChange={(e) =>
+              setInputState({ ...inputState, location: e.target.value })
+            }
+          />
+          <br />
+          <input type="submit" />
+        </form>
+      )}
+
       <select name="" id="" onChange={handleselect}>
         <option selected disabled>
           sort by year
