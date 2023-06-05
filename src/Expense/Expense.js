@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export default function Expense() {
+  const [alldata, setAlldata] = useState([{}]);
   const [data, setData] = useState([{}]);
   const [inputState, setInputState] = useState({
     date: "",
@@ -23,13 +24,38 @@ export default function Expense() {
     console.log("some thing selected");
     let selectedyear = e.target.value;
     console.log(selectedyear);
-
-    let filtered = data.filter((item) => {
+    let alldata = data;
+    console.log("im all data");
+    console.log(alldata);
+    let filtered = alldata.filter((item) => {
       console.log(item.year == selectedyear);
       return item.year == selectedyear;
     });
     console.log(filtered);
     setData(filtered);
+  }
+  let conditionRender = <p>no item please add some item</p>;
+  if (data.length == 1) {
+    conditionRender = (
+      <>
+        <h1>
+          {data[0].date} {data[0].name} {data[0].amount} {data[0].location}{" "}
+          {data[0].year}
+        </h1>
+        <h2>add more expenses</h2>
+      </>
+    );
+  }
+  if (data.length > 1) {
+    conditionRender = data.map((item, ind) => {
+      return (
+        <>
+          <h1>
+            {item.date} {item.name} {item.amount} {item.location} {item.year}
+          </h1>
+        </>
+      );
+    });
   }
   return (
     <>
@@ -69,7 +95,7 @@ export default function Expense() {
         <br />
         <input type="submit" />
       </form>
-      <select name="" id="" value={"qwer"} onChange={handleselect}>
+      <select name="" id="" onChange={handleselect}>
         <option selected disabled>
           sort by year
         </option>
@@ -79,15 +105,7 @@ export default function Expense() {
         <option value="2022">2022</option>
         <option value="2023">2023</option>
       </select>
-      {data.map((item, ind) => {
-        return (
-          <>
-            <h1>
-              {item.date} {item.name} {item.amount} {item.location} {item.year}
-            </h1>
-          </>
-        );
-      })}
+      {conditionRender}
     </>
   );
 }
