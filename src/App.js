@@ -4,11 +4,12 @@ import ExpenseItem from "./ExpenseItem";
 import Wrapper from "./components/Wrapper";
 import ExpenseForm from "./components/ExpenseForm";
 import Expense from "./Expense/Expense";
+import Form from "./firstProject/Form";
 
 export default function App() {
   return (
     <div>
-      <Expense />
+      <Form />
     </div>
   );
 }
